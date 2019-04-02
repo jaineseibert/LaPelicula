@@ -10,10 +10,19 @@ export default class CameraScreen extends Component {
     title: 'Captura de Foto'
   });
 
+  componentDidMount() {    
+    if (typeof this.props.navigation.state.params !== "undefined") {
+      this.setState({ codigo: this.props.navigation.state.params.codigofilme });
+      this.setState({ descricao: this.props.navigation.state.params.descfilme });
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-      uri: null
+      descricao: '',
+      uri: null,
+      codigo: 0
     }
 
     this.capturarFoto = this.capturarFoto.bind(this);
@@ -61,7 +70,7 @@ export default class CameraScreen extends Component {
           <View style={{ flexDirection: 'row' }}>
             <Button title="OK" onPress={
               () => this.props.navigation.navigate('Filme',
-                { imguri: this.state.uri })
+                { imguri: this.state.uri, descfilme: this.state.descricao, codigofilme: this.state.codigo })
             } />
             <Button title="Cancelar" onPress={
               () => this.props.navigation.navigate('Filme')
