@@ -19,6 +19,7 @@ import ListaFilmesScreen from './src/screen/ListaFilmesScreen';
 import FilmeScreen from './src/screen/FilmeScreen';
 import SobreScreen from './src/screen/SobreScreen';
 import CameraScreen from './src/screen/CameraScreen';
+import RecuperarFilmesScreen from './src/screen/RecuperarFilmesScreen';
 
 
 class LoginLoadingScreen extends Component {
@@ -82,6 +83,7 @@ const AppTab = createBottomTabNavigator(
     Home: { screen: ListaFilmesScreen },
     Filme: { screen: FilmeScreen },
     Sobre: { screen: SobreScreen },
+    Assistir: {screen: RecuperarFilmesScreen },
   },
   {
     tabBarOptions: {
